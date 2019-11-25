@@ -27,7 +27,7 @@ echo <<<ENDHTML
  <body>
  <table style="width:100%;">
   <tr>
-   <th colspan="2">ciutat <a href="ciutat.php?action=add">[ADD]</a></th>
+   <th colspan="4">ciutat <a href="ciutat.php?action=add">[ADD]</a></th>
   </tr>
   <tr>
    <th>codi</th>
@@ -38,27 +38,6 @@ echo <<<ENDHTML
   </tr>
 ENDHTML;
 ?>
-<!--<html>
- <head>
-  <title>Music database</title>
-  <style type="text/css">
-   th { background-color: #999;}
-   .odd_row { background-color: #EEE; }
-   .even_row { background-color: #FFF; }
-  </style>
- </head>
- <body>
- <table style="width:100%;">
-  <tr>
-   <th colspan="2">ciutat <a href="ciutat.php?action=add">[ADD]</a></th>
-  </tr>
-  <tr>
-   <th>codi</th>
-   <th> <a href="admin.php?ord=$ord">nom</a></th>
-   <th>poblacio</th>
-   <th>accio</th>
-   
-  </tr>-->
 
 <?php
 
@@ -85,26 +64,69 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '</td></tr>';
 }
 
-//?>
-//  <tr>
-//    <th colspan="2">People <a href="people.php?action=add"> [ADD]</a></th>
-//  </tr>
-//<?php
-//$query = 'SELECT * FROM persona';
-//$result = mysqli_query($db, $query) or die (mysqli_error($db));
-//
-//$odd = true;
-//while ($row = mysqli_fetch_assoc($result)) {
-//    echo ($odd == true) ? '<tr class="odd_row">' : '<tr class="even_row">';
-//    $odd = !$odd; 
-//    echo '<td style="width: 25%;">'; 
-//    echo $row['nombre'];
-//    echo '</td><td>';
-//    echo ' <a href="people.php?action=edit&id=' . $row['persona_id'] .'"> [EDIT]</a>'; 
-//    echo ' <a href="delete.php?type=persona&id=' . $row['persona_id'] . '"> [DELETE]</a>';
-//    echo '</td></tr>';
-//}
-//?>
+?>
+<?php
+ echo <<<ENDHTML
+    <head>
+  <title>Music database</title>
+  <style type="text/css">
+   th { background-color: #999;}
+   .odd_row { background-color: #EEE; }
+   .even_row { background-color: #FFF; }
+  </style>
+ </head>
+ <body>
+ <table style="width:100%;">
+  <tr>
+   <th colspan="8">Temps <a href="temps.php?action=add">[ADD]</a></th>
+  </tr>
+  <tr>
+   <th>nom</th>
+   <th>tempAlta</th>
+   <th>tempBaixa</th>
+   <th>precipitacio</th>
+   <th>data</th>
+   <th>color</th>
+   <th>accio</th>
+  </tr>
+ENDHTML;
+?>
+
+<?php
+
+
+$query = 'SELECT * FROM Temps';
+$result = mysqli_query($db, $query) or die (mysqli_error($db));
+
+$odd = true;
+while ($row = mysqli_fetch_assoc($result)) {
+    echo ($odd == true) ? '<tr class="odd_row">' : '<tr class="even_row">';
+    $odd = !$odd; 
+    echo '<td>'; 
+    echo $row['cfCiutat'];
+    echo '</td>';
+    echo '<td>'; 
+    echo $row['tempAlta'];
+    echo '</td>';
+    echo '<td>'; 
+    echo $row['tempAlta'];
+    echo '</td>';
+    echo '<td>'; 
+    echo $row['precipitacio'];
+    echo '</td>';
+    echo '<td>'; 
+    echo $row['data'];
+    echo '</td>';
+     echo '<td>'; 
+    echo $row['color'];
+    echo '</td>';
+    echo '<td>';
+    echo ' <a href="temps.php?action=edit&id=' . $row['idTemps'] . '"> [EDIT]</a>'; 
+    echo ' <a href="delete.php?type=temps&id=' . $row['idTemps'] . '"> [DELETE]</a>';
+    echo '</td></tr>';
+}
+
+?>
   </table>
  </body>
 </html>
