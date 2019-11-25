@@ -11,7 +11,7 @@ if ($_GET['action'] == 'edit') {
 } else {
     //set values to blank
     $nom = '';
-    $ciutat = '';
+    $codi = '';
     $poblacio = 0;
 }
 ?>
@@ -30,9 +30,9 @@ if ($_GET['action'] == 'edit') {
      <td><input type="text" name="codi" value="<?php echo $codi; ?>"/></td>
     </tr>
     <tr>
-     <td>pobloacio</td>
+     <td>Poblacio</td>
      <td><input type="text" name="poblacio" value="<?php echo $poblacio; ?>"/></td>
-//<?php
+<?php
 //// select the movie type information
 //$query = 'SELECT * FROM Ciutat ORDER BY nom';
 //$result = mysqli_query($db, $query) or die(mysqli_error($db));
