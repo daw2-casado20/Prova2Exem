@@ -27,8 +27,8 @@ if (!isset($_GET['do']) || $_GET['do'] != 1) {
 <a href="admin.php">Return to Index</a></p>
 <?php
         break;
-    case 'cancion':
-         $query = 'DELETE FROM cancion  WHERE cancion_id = ' . $_GET['id'];
+    case 'temps':
+         $query = 'DELETE FROM Temps  WHERE idTemps = ' . $_GET['id'];
         $result = mysqli_query($db, $query) or die(mysqli_error($db));
 ?>
 <p style="text-align: center;">Your song has been deleted.
